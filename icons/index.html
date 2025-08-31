@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,27 +10,194 @@
       font-family: Arial, sans-serif;
       background: #f9f9f9;
       color: #333;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
+      padding: 0;
     }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
     h1 {
       font-size: 2em;
       margin-bottom: 10px;
     }
-    p {
+
+    .search-bar {
+      width: 100%;
+      padding: 10px;
       font-size: 1.1em;
+      margin-bottom: 24px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
     }
-    a {
-      color: #0073e6;
-      text-decoration: none;
+
+    .icons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 18px;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .icon-card {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 12px 8px 8px 8px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+
+    .icon-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+      background: #eaf6ff;
+    }
+
+    .icon-preview {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 8px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .icon-name {
+      font-size: 0.95em;
+      margin-bottom: 6px;
+      color: #555;
+      word-break: break-all;
+    }
+
+    .copy-btn {
+      font-size: 0.85em;
+      background: #0073e6;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+      margin: 2px;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #005bb5;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 1em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 9999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
     }
   </style>
 </head>
+
 <body>
-  <h1>Icons Directory</h1>
-  <p>This folder contains icon files.</p>
+  <div class="container">
+    <h1>Icons Directory</h1>
+    <input class="search-bar" type="text" placeholder="Search icons..." id="searchInput" />
+    <div class="icons-grid" id="iconsGrid"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script>
+    const CDN_BASE = "https://assets.navigable.ai/icons/";
+    let iconsList = [];
+    let filteredIcons = [];
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    function renderIcons() {
+      const grid = document.getElementById('iconsGrid');
+      grid.innerHTML = '';
+      filteredIcons.forEach(iconPath => {
+        const name = iconPath;
+        const url = CDN_BASE + iconPath;
+        const card = document.createElement('div');
+        card.className = 'icon-card';
+
+        const img = document.createElement('img');
+        img.className = 'icon-preview';
+        img.src = url;
+        img.alt = name;
+
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'icon-name';
+        nameDiv.textContent = name;
+
+        const copyUrlBtn = document.createElement('button');
+        copyUrlBtn.className = 'copy-btn';
+        copyUrlBtn.textContent = 'Copy URL';
+        copyUrlBtn.onclick = () => {
+          navigator.clipboard.writeText(url);
+          showToast('Copied URL!');
+        };
+
+        const copyNameBtn = document.createElement('button');
+        copyNameBtn.className = 'copy-btn';
+        copyNameBtn.textContent = 'Copy Path';
+        copyNameBtn.onclick = () => {
+          navigator.clipboard.writeText(name);
+          showToast('Copied path!');
+        };
+
+        card.appendChild(img);
+        card.appendChild(nameDiv);
+        card.appendChild(copyUrlBtn);
+        card.appendChild(copyNameBtn);
+
+        grid.appendChild(card);
+      });
+    }
+
+    function filterIcons(query) {
+      query = query.trim().toLowerCase();
+      filteredIcons = iconsList.filter(icon =>
+        icon.toLowerCase().includes(query)
+      );
+      renderIcons();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', e => {
+      filterIcons(e.target.value);
+    });
+
+    fetch(CDN_BASE + 'list.json')
+      .then(res => res.json())
+      .then(list => {
+        iconsList = list;
+        filteredIcons = list;
+        renderIcons();
+      })
+      .catch(() => {
+        document.getElementById('iconsGrid').innerHTML = '<p style="color:red;">Failed to load icons list.</p>';
+      });
+  </script>
 </body>
+
 </html>
