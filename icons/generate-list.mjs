@@ -5,7 +5,7 @@ import { join } from 'path';
 function getIconPaths(subdir) {
   return readdirSync(join('icons', subdir))
     .filter(f => f.endsWith('.svg'))
-    .map(f => `${subdir}/${f}`);
+    .map(f => `${subdir}/${f.replace('.svg', '')}`);
 }
 
 const filled = getIconPaths('filled');
