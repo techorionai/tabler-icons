@@ -1,8 +1,8 @@
 <!--
-tags: [signal, wireless, wi-fi, quality]
+tags: [signal-strength, signal, cellular, reception, mobile, network, wireless, connection, no-signal, disabled, offline, antenna, bars, off]
+category: Devices
 version: "1.62"
 unicode: "f0aa"
-category: Devices
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

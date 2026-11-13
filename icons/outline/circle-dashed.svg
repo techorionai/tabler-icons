@@ -1,7 +1,7 @@
 <!--
-tags: [shape, line, check]
-version: "1.26"
+tags: [dashed, dotted, circle, round, shape, placeholder, empty, pending, draft, outline]
 category: Shapes
+version: "1.26"
 unicode: "ed27"
 -->
 <svg

@@ -1,8 +1,8 @@
 <!--
-tags: [alarm, bell, clock, date, snooze, time]
+tags: [notification, alert, reminder, notify, alarm, snooze, sleep, mute, do-not-disturb, bell]
+category: System
 version: "1.52"
 unicode: "eff1"
-category: System
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

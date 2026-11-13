@@ -1,38 +1,21 @@
-import fs from 'fs'
-import { getRollupConfig } from '../../.build/rollup-plugins.mjs'
-import dts from "rollup-plugin-dts";
+import withSolid from 'rollup-preset-solid';
 
-const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+const config = withSolid({
+  // The .tsx extension makes the Solid source condition emit JSX for Vite to compile.
+  input: 'src/tabler-icons-solidjs.tsx',
+  targets: ['esm', 'cjs'],
+  printInstructions: false,
+});
 
-const outputFileName = 'tabler-icons-solidjs';
-const inputs = ['./src/tabler-icons-solidjs.ts'];
-const bundles = [
-  {
-    format: 'cjs',
-    extension: 'cjs',
-    inputs,
-  },
-  {
-    format: 'esm',
-    inputs,
-    preserveModules: true,
-    extension: 'js',
-  },
-];
+// The preset always emits source maps; like the other packages, Solid ships
+// without them (see `.build/rollup-plugins.mjs`). The package is `type: module`,
+// so the CommonJS bundle needs the `.cjs` extension or Node parses it as ESM.
+config.output = config.output.map((output) => ({
+  ...output,
+  sourcemap: false,
+  ...(output.format === 'cjs'
+    ? { entryFileNames: '[name].cjs', chunkFileNames: '[name]-[hash].cjs' }
+    : {}),
+}));
 
-export default [
-  {
-    input: inputs[0],
-    output: [
-      {
-        file: `dist/${outputFileName}.d.ts`,
-        format: 'es',
-      },
-    ],
-    plugins: [dts()],
-  },
-  ...getRollupConfig(pkg, outputFileName, bundles, {
-    'solid-js': 'solid-js',
-    'solid-js/h': 'solid-js/h',
-  })
-];
+export default config;

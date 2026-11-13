@@ -1,31 +1,26 @@
-import cp from 'child_process'
-import { getArgvs, getPackageJson, printChangelog } from './helpers.mjs'
+import cp from 'child_process';
+import { getPackageJson, printChangelog } from './helpers.mjs';
 
+// Release tags carry a `v` prefix (`v3.50.0`); accept either form from the env.
 const p = getPackageJson(),
-    argv = getArgvs(),
-    version = argv['latest-version'] || `${p.version}`
+  version = process.env.LATEST_VERSION || p.version,
+  tag = version.startsWith('v') ? version : `v${version}`;
 
-if (version) {
-  cp.exec(`git diff ${version} HEAD --name-status ./icons`, function(err, ret) {
+cp.execFile('git', ['diff', tag, 'HEAD', '--name-status', './icons'], function (err, ret) {
+  if (err) {
+    console.error(`Cannot diff against ${tag}: ${err.message}`);
+    process.exit(1);
+  }
 
-    let newIcons = [], modifiedIcons = [], renamedIcons = []
+  const newIcons = [...ret.matchAll(/A\s+icons\/([a-z0-9-/]+)\.svg/g)].map((m) => m[1]);
 
-    ret.replace(/A\s+icons\/([a-z0-9-\/]+)\.svg/g, function(m, fileName) {
-      newIcons.push(fileName)
-    })
+  const modifiedIcons = [...ret.matchAll(/M\s+icons\/([a-z0-9-/]+)\.svg/g)]
+    .map((m) => m[1])
+    .filter((icon) => !newIcons.includes(icon));
 
-    ret.replace(/M\s+icons\/([a-z0-9-\/]+)\.svg/g, function(m, fileName) {
-      modifiedIcons.push(fileName)
-    })
+  const renamedIcons = [
+    ...ret.matchAll(/R[0-9]+\s+icons\/([a-z0-9-/]+)\.svg\s+icons\/([a-z0-9-/]+)\.svg/g),
+  ].map((m) => [m[1], m[2]]);
 
-    ret.replace(/R[0-9]+\s+icons\/([a-z0-9-\/]+)\.svg\s+icons\/([a-z0-9-\/]+).svg/g, function(m, fileNameBefore, fileNameAfter) {
-      renamedIcons.push([fileNameBefore, fileNameAfter])
-    })
-
-    modifiedIcons = modifiedIcons.filter(function(el) {
-      return newIcons.indexOf(el) < 0
-    })
-
-    printChangelog(newIcons, modifiedIcons, renamedIcons, true)
-  })
-}
+  printChangelog(newIcons, modifiedIcons, renamedIcons, true);
+});

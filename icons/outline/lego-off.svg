@@ -1,7 +1,8 @@
 <!--
-tags: [toy, boy, face, play]
-unicode: "f401"
+category: System
+tags: [lego, toy, brick, block, play, disabled, off-state, unavailable, off]
 version: "1.94"
+unicode: "f401"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

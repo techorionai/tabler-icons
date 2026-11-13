@@ -1,5 +1,6 @@
 <!--
-tags: [layers, depth, foreground, arrangement, position, sequence, structure, priority, place, front]
+category: System
+tags: [layers, bring-to-front, arrange, order, z-index, depth, foreground, top, front]
 version: "2.40"
 unicode: "fd29"
 -->

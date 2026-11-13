@@ -1,8 +1,8 @@
 <!--
-tags: [sad, happy, emoji, smiley, neutral, face]
+tags: [disabled, no-emoji, inactive, slash, emoji, smiley, face, emotion, feeling, reaction, mood, off]
+category: Mood
 version: "1.66"
 unicode: "f161"
-category: Mood
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

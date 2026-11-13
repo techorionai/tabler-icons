@@ -1,7 +1,8 @@
 <!--
-category: Sytem
-unicode: "10154"
+tags: [filter, filtering, sort, paused, hold, suspend, wait, refine, list, options, break, pause]
+category: System
 version: "3.32"
+unicode: "10154"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

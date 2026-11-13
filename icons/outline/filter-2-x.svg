@@ -1,7 +1,8 @@
 <!--
-category: Sytem
-unicode: "1014c"
+tags: [filter, filtering, sort, close, delete, remove, cancel, refine, list, options, clear, error, x]
+category: System
 version: "3.32"
+unicode: "1014c"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

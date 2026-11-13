@@ -1,7 +1,8 @@
 <!--
+tags: [direction, north, upward, top, to-edge, dotted, pointer, navigation, arrow, bar, dashed]
 category: Arrows
-unicode: "10161"
 version: "3.32"
+unicode: "10161"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

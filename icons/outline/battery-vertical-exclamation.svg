@@ -1,8 +1,8 @@
 <!--
+tags: [power, energy, charge, level, phone, mobile, low-battery, warning, alert, error, battery, vertical, exclamation]
 category: Devices
-tags: [energy, power, electricity]
-unicode: "ff15"
 version: "3.7"
+unicode: "ff15"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

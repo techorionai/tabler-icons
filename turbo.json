@@ -1,12 +1,33 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "$schema": "https://v2-10-7.turborepo.dev/schema.json",
+  "globalEnv": ["ICONS_LIMIT", "SOURCE_DATE_EPOCH"],
+  "tasks": {
     "build": {
-      "outputs": ["dist/**", "src/icons/**"],
+      "outputs": [
+        "dist/**",
+        "src/icons/**",
+        "src/icons-dts/**",
+        "src/aliases.ts",
+        "src/icons-list.ts",
+        "src/dynamic-imports.ts",
+        "icons/**",
+        "icons.json",
+        "tabler-nodes-*.json",
+        "categories/**",
+        "docs/**",
+        "LICENSE"
+      ],
       "dependsOn": ["^build"],
-      "inputs": ["../../icons/**"]
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../icons/**",
+        "../../aliases.json",
+        "../../.build/**",
+        "!../../.build/**/*.test.mjs",
+        "../../LICENSE",
+        "../../tsconfig.base.json"
+      ]
     },
-    "lint": {},
     "dev": {
       "cache": false,
       "persistent": true

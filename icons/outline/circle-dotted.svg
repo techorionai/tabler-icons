@@ -1,8 +1,8 @@
 <!--
-tags: [shape, point, check]
+tags: [dotted, dashed, circle, round, shape, placeholder, empty, pending, loading, outline]
+category: Shapes
 version: "1.26"
 unicode: "ed28"
-category: Shapes
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

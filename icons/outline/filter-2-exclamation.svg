@@ -1,7 +1,8 @@
 <!--
-category: Sytem
-unicode: "10156"
+tags: [filter, filtering, sort, warning, alert, error, attention, refine, list, options, important, caution, exclamation]
+category: System
 version: "3.32"
+unicode: "10156"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

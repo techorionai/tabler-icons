@@ -1,8 +1,8 @@
 <!--
-tags: [bend, direction, turn, left, symbol, path, navigation, interface, ui, route]
+tags: [bend, turn, corner, direction, west, route, pointer, navigation, arrow, left]
+category: Arrows
 version: "2.11"
 unicode: "f9ed"
-category: Arrows
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

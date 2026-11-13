@@ -1,7 +1,8 @@
 <!--
-tags: [analytics, raport, statistics, chart]
-unicode: "f3f4"
+category: System
+tags: [chart, line-chart, analytics, statistics, stats, report, no-data, disabled, off-state, unavailable, graph, off]
 version: "1.94"
+unicode: "f3f4"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

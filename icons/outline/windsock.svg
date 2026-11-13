@@ -1,8 +1,8 @@
 <!--
-tags: [weather, meteorology, windy, storm, wind]
+tags: [windsock, wind, direction, airport, weather, gust, wind-indicator, airfield]
+category: Map
 version: "1.58"
 unicode: "f06d"
-category: Map
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

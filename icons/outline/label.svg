@@ -1,7 +1,8 @@
 <!--
-tags: [tag, sticker, marker, badge, identifier, notate, record, name, plot]
-unicode: "ff38"
+category: System
+tags: [label, tag, badge, sticker, price-tag, category, marker]
 version: "3.9"
+unicode: "ff38"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

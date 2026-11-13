@@ -1,7 +1,7 @@
 <!--
-tags: [location, navigation, gps, find, signal, technology, submarine]
-version: "1.54"
+tags: [scan, sonar, detection, tracking, signal, gps, locate, search, radar]
 category: Map
+version: "1.54"
 unicode: "f017"
 -->
 <svg

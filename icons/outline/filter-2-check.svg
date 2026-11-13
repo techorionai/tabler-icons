@@ -1,7 +1,8 @@
 <!--
-category: Sytem
-unicode: "1015d"
+tags: [filter, filtering, sort, done, success, confirmed, approved, refine, list, options, verified, tick, checkmark, ok, check]
+category: System
 version: "3.32"
+unicode: "1015d"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

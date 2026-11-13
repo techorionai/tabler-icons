@@ -1,8 +1,8 @@
 <!--
-tags: [proceed, swipe, below, bottom]
+tags: [direction, south, downward, bottom, dotted, pointer, navigation, arrow, down, dashed]
 category: Arrows
-unicode: "1006a"
 version: "3.19"
+unicode: "1006a"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

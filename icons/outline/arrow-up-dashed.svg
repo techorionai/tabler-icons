@@ -1,8 +1,8 @@
 <!--
-tags: [top, point]
+tags: [direction, north, upward, top, dotted, pointer, navigation, arrow, dashed]
 category: Arrows
-unicode: "10063"
 version: "3.19"
+unicode: "10063"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,8 @@
 <!--
-tags: [back, swipe, return]
+tags: [direction, west, previous, back, dotted, pointer, navigation, arrow, left, dashed]
 category: Arrows
-unicode: "10069"
 version: "3.19"
+unicode: "10069"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

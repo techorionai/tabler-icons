@@ -9,7 +9,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: actions/stale@v9
+      - uses: actions/stale@v11
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: This PR is stale because it has been open 45 days with no activity. Remove stale label or comment or this will be closed in 5 days.
@@ -18,3 +18,4 @@ jobs:
           days-before-stale: 30
           days-before-issue-stale: -1
           days-before-close: -1
+          exempt-pr-labels: no stale

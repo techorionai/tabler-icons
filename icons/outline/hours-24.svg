@@ -1,8 +1,8 @@
 <!--
-tags: [clock, time, day, support, service]
-unicode: "f5e7"
-version: "1.113"
+tags: [24-hours, 24h, 24-7, around-the-clock, support, service, clock, time, open, hours]
 category: System
+version: "1.113"
+unicode: "f5e7"
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"

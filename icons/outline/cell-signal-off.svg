@@ -1,7 +1,7 @@
 <!--
-tags: [mobile, phone, connetcion, wireless, network]
-version: "1.60"
+tags: [signal, cell-signal, mobile-signal, reception, bars, network, cellular, disabled, off, unavailable, inactive, no-signal, no-service, offline, strength, phone, cell]
 category: Devices
+version: "1.60"
 unicode: "f088"
 -->
 <svg

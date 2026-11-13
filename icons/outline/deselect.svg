@@ -1,5 +1,6 @@
 <!--
-tags: [unselect, clear-selection, deselection, unpick, uncheck, deactivate, unmark, remove-selection, untag, unchoose]
+category: System
+tags: [deselect, unselect, clear-selection, select-none, selection, uncheck, marquee, dashed]
 version: "2.11"
 unicode: "f9f3"
 -->

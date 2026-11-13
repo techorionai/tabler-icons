@@ -1,7 +1,7 @@
 <!--
-tags: [direction, north, south, west, east]
-version: "1.61"
+tags: [shuffle, mix, chaos, randomize, scatter, pointer, navigation, direction, arrows, random]
 category: Arrows
+version: "1.61"
 unicode: "f095"
 -->
 <svg

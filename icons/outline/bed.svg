@@ -1,5 +1,5 @@
 <!--
-tags: [furniture, sleeping, comfortable, bedroom, mattress, resting, relax, sleep, futon, cozy]
+tags: [sleep, bedroom, hotel, rest, night, furniture, accommodation]
 category: Map
 version: "1.2"
 unicode: "eb5c"
@@ -15,8 +15,8 @@ unicode: "eb5c"
   stroke-linecap="round"
   stroke-linejoin="round"
 >
-  <path d="M7 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+  <path d="M5 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
   <path d="M22 17v-3h-20" />
   <path d="M2 8v9" />
-  <path d="M12 14h10v-2a3 3 0 0 0 -3 -3h-7v5z" />
+  <path d="M12 14h10v-2a3 3 0 0 0 -3 -3h-7v5" />
 </svg>

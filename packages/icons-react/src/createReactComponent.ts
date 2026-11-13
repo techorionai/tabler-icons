@@ -1,6 +1,6 @@
 import { forwardRef, createElement } from 'react';
 import defaultAttributes from './defaultAttributes';
-import type { IconNode, IconProps, Icon } from './types';
+import type { IconNode, IconProps } from './types';
 
 const createReactComponent = (
   type: 'outline' | 'filled',
@@ -8,9 +8,17 @@ const createReactComponent = (
   iconNamePascal: string,
   iconNode: IconNode,
 ) => {
-  const Component = forwardRef<Icon, IconProps>(
+  const Component = forwardRef<SVGSVGElement, IconProps>(
     (
-      { color = 'currentColor', size = 24, stroke = 2, title, className, children, ...rest }: IconProps,
+      {
+        color = 'currentColor',
+        size = 24,
+        stroke = 2,
+        title,
+        className,
+        children,
+        ...rest
+      }: IconProps,
       ref,
     ) =>
       createElement(
@@ -20,7 +28,9 @@ const createReactComponent = (
           ...defaultAttributes[type],
           width: size,
           height: size,
-          className: [`tabler-icon`, `tabler-icon-${iconName}`, className].join(' '),
+          className: [`tabler-icon`, `tabler-icon-${iconName}`, className]
+            .filter(Boolean)
+            .join(' '),
           ...(type === 'filled'
             ? {
                 fill: color,
